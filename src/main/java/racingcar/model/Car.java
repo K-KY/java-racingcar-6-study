@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.RandomResult;
+import java.util.StringJoiner;
 
 public class Car {
     private final String carName;
@@ -19,5 +19,17 @@ public class Car {
     @Override
     public String toString() {
         return carName + " : " + "-".repeat(carMove);
+    }
+
+    public int isGreaterThan(int winnerCount) {
+        return Math.max(winnerCount, carMove);
+    }
+
+    public boolean isEqualCount(int maxCount) {
+        return maxCount == carMove;
+    }
+
+    public void appendName(StringJoiner sb) {
+        sb.add(carName);
     }
 }
