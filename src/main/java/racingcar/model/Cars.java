@@ -7,14 +7,13 @@ import racingcar.RandomResult;
 public class Cars {
     private List<Car> cars;
 
-    public Cars(String participants) {
-        cars = typeConverter(participants);
+    public Cars(List<String> carNames) {
+        cars = typeConverter(carNames);
     }
 
-    private List<Car> typeConverter(String participants) {
+    private List<Car> typeConverter(List<String> carNames) {
         List<Car> car = new ArrayList<>();
-        List.of(participants.split(","))
-                .forEach(participant -> car.add(new Car(participant)));
+        carNames.forEach(carName -> car.add(new Car(carName)));
         return car;
     }
 
