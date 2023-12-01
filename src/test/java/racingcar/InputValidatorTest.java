@@ -27,4 +27,11 @@ public class InputValidatorTest {
         assertThatThrownBy(() -> inputValidator.nameLength("")).isInstanceOf(IllegalArgumentException.class);
         assertThatCode(() -> inputValidator.nameLength("qq")).doesNotThrowAnyException();
     }
+
+    @Test
+    void trialCountTest() {
+        InputValidator inputValidator = new InputValidator();
+        assertThatThrownBy(() -> inputValidator.trialCount("q")).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> inputValidator.trialCount("9k")).isInstanceOf(IllegalArgumentException.class);
+    }
 }
