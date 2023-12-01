@@ -20,4 +20,11 @@ public class InputView {
         });
         return carNames;
     }
+
+    private int trialCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+        inputValidator.trialCount(input);
+        return Integer.parseInt(input);
+    }
 }
