@@ -24,4 +24,17 @@ public class Cars {
     public void indicate() {
         cars.forEach(car -> System.out.println(car.toString()));
     }
+
+    public int findWinner() {
+        return cars.stream()
+                .map(car -> car.isGreaterThan(0))
+                .mapToInt(x -> x)
+                .max()
+                .orElse(0);
+    }
+
+    public List<Car> isWinner(int maxCount) {
+        List<Car> winner = cars.stream().filter(car -> car.isEqualCount(maxCount)).toList();
+        return winner;
+    }
 }
